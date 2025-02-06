@@ -17,28 +17,29 @@ const { USER_ADDED, FETCH_USERS, UPDATE_USER, ALREADY_REGISTER, FETCH_USER, DELE
 const { RECORD_CREATED, RECORD_ALREADY_EXISTS, SUCCESS, BAD_REQUEST } = statusCodes;
 
 //Add User
-router.post('/', (req, res) => {
+router.post('/', async(req, res) => {
   console.log("ENTER HERE")
   console.log('req.body', req.body)
   // const { mobile } = req.body;
-  // addUser(req.body)
-  //   .then(async user => {
-  //     return makeResponse(
-  //       res,
-  //       RECORD_CREATED,
-  //       true,
-  //       USER_ADDED,
-  //       user
-  //     );
-  //   })
-  //   .catch(async error => {
-  //     return makeResponse(
-  //       res,
-  //       RECORD_ALREADY_EXISTS,
-  //       false,
-  //       error.message
-  //     );
-  //   });
+
+  addUser(req.body)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        USER_ADDED,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
 });
 
 // create user
