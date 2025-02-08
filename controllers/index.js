@@ -45,7 +45,7 @@ router.post('/', async(req, res) => {
 // create user
 router.post('/createUser', (req, res) => {
   console.log("create user")
-  console.log('req.body', req.body)
+  console.log('createUser', req.body)
   // const { user } = req.body;
   // addUser(req.body)
   //   .then(async user => {
