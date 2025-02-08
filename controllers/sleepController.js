@@ -19,7 +19,7 @@ const { RECORD_CREATED, RECORD_ALREADY_EXISTS, SUCCESS, BAD_REQUEST } = statusCo
 router.post('/saveSleepData', async(req, res) => {
     console.log("saveSleepData FROM MOBIEL APP SAVE TO DB")
     console.log('req.body', req.body)
-    
+    console.log("Mu controller is ready")
     // const { mobile } = req.body;
     
     // addUser(req.body)
