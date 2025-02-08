@@ -17,8 +17,9 @@ const { USER_ADDED, FETCH_USERS, UPDATE_USER, ALREADY_REGISTER, FETCH_USER, DELE
 const { RECORD_CREATED, RECORD_ALREADY_EXISTS, SUCCESS, BAD_REQUEST } = statusCodes;
 
 router.post('/saveSleepData', async(req, res) => {
-    console.log("saveSleepData FROM MOBIEL APP")
+    console.log("saveSleepData FROM MOBIEL APP SAVE TO DB")
     console.log('req.body', req.body)
+    
     // const { mobile } = req.body;
     
     // addUser(req.body)
