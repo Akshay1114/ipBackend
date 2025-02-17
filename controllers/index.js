@@ -6,66 +6,78 @@ import {
   findAllUsers,
   findUserById,
   getUsersCount,
+  loginUser,
   updateUser
 } from '../services/index.js';
+
 
 const router = Router();
 
 //Response messages
-const { USER_ADDED, FETCH_USERS, UPDATE_USER, ALREADY_REGISTER, FETCH_USER, DELETE_USER } = responseMessages.EN;
+const { USER_ADDED, FETCH_USERS, UPDATE_USER, ALREADY_REGISTER, FETCH_USER, DELETE_USER,LOGIN } = responseMessages.EN;
 //Response Status code
 const { RECORD_CREATED, RECORD_ALREADY_EXISTS, SUCCESS, BAD_REQUEST } = statusCodes;
 
-//Add User
-router.post('/', async(req, res) => {
-  console.log("ENTER HERE")
-  console.log('req.body', req.body)
-  // const { mobile } = req.body;
 
+
+//Add User
+router.post('/signup', async(req, res) => {
+  console.log("ENTER HERE IN SIGNUP")
   addUser(req.body)
-    .then(async user => {
-      return makeResponse(
-        res,
-        RECORD_CREATED,
-        true,
-        USER_ADDED,
-        user
-      );
-    })
-    .catch(async error => {
+            .then(async user => {
+              return makeResponse(
+                res,
+                RECORD_CREATED,
+                true,
+                USER_ADDED,
+                user
+              );
+            })
+            .catch(async error => {
+              return makeResponse(
+                res,
+                RECORD_ALREADY_EXISTS,
+                false,
+                error.message
+              );
+            });
+ 
+});
+
+// Login User
+router.post('/login', async (req, res) => {
+  console.log("ENTER HERE IN LOGIN")
+    try{
+      console.log(req.body)
+      loginUser(req.body)
+      .then(async user => {
+        return makeResponse(
+          res,
+          RECORD_CREATED,
+          true,
+          LOGIN,
+          user
+        );
+      })
+      .catch(async error => {
+        return makeResponse(
+          res,
+          RECORD_ALREADY_EXISTS,
+          false,
+          error.message
+        );
+      });
+    } catch (error) {
       return makeResponse(
         res,
         RECORD_ALREADY_EXISTS,
         false,
         error.message
       );
-    });
+    }
+  
 });
 
-// create user
-router.post('/createUser', (req, res) => {
-  console.log("create user")
-  console.log('createUser', req.body)
-  // const { user } = req.body;
-  // addUser(req.body)
-  //   .then(async user => {
-  //     return makeResponse(
-  //       res,
-  //       RECORD_CREATED,
-  //       true,
-  //       USER_ADDED,
-  //       user
-  //     );
-  //   })
-  //   .catch(async error => {
-  //     return makeResponse(
-  //       res,
-  //       RECORD_ALREADY_EXISTS,
-  //       false,
-  //       error.message
-  //     );
-  //   });
-});
 
 //Update user
 router.put("/:id", (req, res) => {

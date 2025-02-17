@@ -9,7 +9,7 @@ connectDB()
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+console.log('process.env.PORT', process.env.PORT)
 app.use('/', router);
 
 const PORT = process.env.PORT || 5001;
