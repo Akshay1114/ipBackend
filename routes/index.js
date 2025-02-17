@@ -6,8 +6,9 @@ import { userSleepDataController } from '../controllers/sleepController.js';
 
 const router = Router();
 
-router.use('/createUser', userController);
+router.use('/user', userController);
 router.use('/sleepData', userSleepDataController);
+// router.user('/user', userController.login);
 
 // router.use('/createUser', userController);
 
