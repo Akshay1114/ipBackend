@@ -14,6 +14,14 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  role:{
+    type: String,
+    default: 'employee'
+  },
+  employee_ID:{
+    type: String,
+    default: ''
+  },
   isDeleted: {
     type: Boolean,
     default: false

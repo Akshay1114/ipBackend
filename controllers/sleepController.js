@@ -42,4 +42,4 @@ router.post('/saveSleepData', async(req, res) => {
     //     });
     });
 
-    export const userSleepDataController = router;
+    export const sleepController = router;
