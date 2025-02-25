@@ -7,10 +7,11 @@ import bodyParser from 'body-parser';
 dotenv.config();
 connectDB()
 const app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 console.log('process.env.PORT', process.env.PORT)
-app.use('/', router);
+app.use('/api/', router);
 
 const PORT = process.env.PORT || 5001;
 

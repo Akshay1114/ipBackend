@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
+import dotenv from "dotenv";
 
-const uri = 'mongodb+srv://jrpolyeeakshay:1JYxp7RT6waa0V64@wingwise.k5cyo.mongodb.net/?retryWrites=true&w=majority&appName=wingwise';
-
+dotenv.config();
+// const uri = '';
+const uri = process.env.URI;
+console.log('uri', uri);
 const connectDB = async () => {
   console.log('Connecting to DB');
   mongoose.connect(uri, {
@@ -9,6 +12,9 @@ const connectDB = async () => {
     useUnifiedTopology: true
 })
       .then(() => console.log('Connected Successfully'))
-      .catch((err) => console.error('Not Connected'));
+      .catch((err) => {
+        console.log('Error:', err);
+        console.error('Not Connected')
+      });
 }
   export { connectDB };

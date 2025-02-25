@@ -1,5 +1,6 @@
 export const responseMessages = {
   EN: {
+    "SCHEDULE_ADDED": "Schedule added successfully",
     'ACCOUNT_DISABLED': 'Your account is disabled',
     'ANIMAL_NOTFOUND': 'Animal not found',
     'ALREADY_EXIST': 'Aleardy Exist Please Login',
