@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { makeResponse, responseMessages, statusCodes } from '../helpers/response/index.js';
-import { saveSchedule } from '../services/schedule.js';
+import { getScheduleById, saveSchedule } from '../services/schedule.js';
 
 
 const router = Router();
@@ -33,6 +33,29 @@ router.post('/', async(req, res) => {
         error.message
         );
     });
+    });
+
+    router.get('/', async(req, res) => {
+        console.log("ENTER in get schedule by id")
+        console.log('req.query', req.query)
+        getScheduleById(req.query)
+        .then(async user => {
+            return makeResponse(
+            res,
+            RECORD_CREATED,
+            true,
+            SCHEDULE_ADDED,
+            user
+            );
+        })
+        .catch(async error => {
+            return makeResponse(
+            res,
+            RECORD_ALREADY_EXISTS,
+            false,
+            error.message
+            );
+        });
     });
 
     export const scheduleController = router;

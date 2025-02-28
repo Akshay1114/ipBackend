@@ -14,7 +14,7 @@ const saveSchedule = async (payload = {}) => {
           const weekStartDate = moment().startOf("isoWeek").toDate(); // Monday of current week
             console.log('weekStartDate',  entry.flightStart)
           await Schedule.create({
-            pilotId: entry.pilotId,
+            employee_ID: entry.employee_ID,
             name: entry.name,
             weekStartDate,
             flightStart:  entry.flightStart, 
@@ -31,4 +31,18 @@ const saveSchedule = async (payload = {}) => {
     }
 }
 
-export { saveSchedule };
+const getScheduleById = async (search = {}) => {
+    try{
+        console.log('search', search)
+        const { employee_ID } = search;
+        const schedule = await Schedule
+        .findOne(employee_ID)
+        .exec();
+        return schedule;
+    }
+    catch(error){
+        throw new Error(error.message)
+    }
+}
+
+export { saveSchedule, getScheduleById };

@@ -162,21 +162,23 @@ router.get("/", (req, res) => {
 //Delete User
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  deleteUser(id)
-    .then(async () => {
-      return makeResponse(
-        res,
-        SUCCESS,
-        true,
-        DELETE_USER
-      );
-    })
-    .catch(async (error) => {
-      return makeResponse(
-        res,
-        BAD_REQUEST,
-        false, error.message);
-    });
+  console.log('id', id)
+  res.send('Hello World')
+  // deleteUser(id)
+  //   .then(async () => {
+  //     return makeResponse(
+  //       res,
+  //       SUCCESS,
+  //       true,
+  //       DELETE_USER
+  //     );
+  //   })
+  //   .catch(async (error) => {
+  //     return makeResponse(
+  //       res,
+  //       BAD_REQUEST,
+  //       false, error.message);
+  //   });
 });
 
 

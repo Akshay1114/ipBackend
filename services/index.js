@@ -28,19 +28,22 @@ const addUser = async (payload = {}) => {
 //  Login user
 const loginUser = async (payload = {}) => {
 	console.log('payload', payload)
-	console.log('process.env.JWT_SECRET_KEY', process.env.JWT_SECRET_KEY)
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation
+   emailRegex.test(payload.email);
+   let filter = payload.email
+	if(!emailRegex.test(payload.email)) filter = payload.email
+
 	const user = await User.findOne({
-		email: payload.email
+		$or: [{ email: filter }, { employee_ID: filter }]
 	});
-	console.log('User:', user);
 	if (!user) {
 		throw new Error("Invalid credentials");
 	}
+	console.log('User: FINDD');
 	const isMatch = await bcrypt.compare(payload.password, user.password);
         if (!isMatch) throw new Error("Invalid credentials");
-
         // Generate JWT Token
-        const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET_KEY);
+        const token = jwt.sign({ id: user._id, email: user.email, employee_ID:user.employee_ID }, process.env.JWT_SECRET_KEY);
 		// const res
         return { token, user };
 };
