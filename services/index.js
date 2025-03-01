@@ -27,12 +27,12 @@ const addUser = async (payload = {}) => {
 
 //  Login user
 const loginUser = async (payload = {}) => {
-	console.log('payload', payload)
+	console.log('payload ==>', payload)
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation
    emailRegex.test(payload.email);
    let filter = payload.email
 	if(!emailRegex.test(payload.email)) filter = payload.email
-
+		console.log(filter)
 	const user = await User.findOne({
 		$or: [{ email: filter }, { employee_ID: filter }]
 	});

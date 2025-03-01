@@ -10,7 +10,7 @@ const router = Router();
 
 router.use('/user', userController);
 router.use('/sleepData', sleepController);
-router.use('/schedule',verifyToken, scheduleController)
-// router.use('/schedule', scheduleController)
+// router.use('/schedule',verifyToken, scheduleController)
+router.use('/schedule', scheduleController)
 
 export { router };
