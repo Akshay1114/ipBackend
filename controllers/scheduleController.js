@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { makeResponse, responseMessages, statusCodes } from '../helpers/response/index.js';
 import { getScheduleById, saveSchedule, getAllSchedule } from '../services/schedule.js';
 import { Schedule } from '../models/schedule.js';
-import {trainModel} from '../aiModel/aiTrain.js'
+// import {trainModel} from '../aiModel/aiTrain.js'
 
 
 const router = Router();
@@ -33,11 +33,11 @@ router.post('/', async(req, res) => {
         );
     });
     });
-    router.post("/train", async (req, res) => {
-        const trainingData = await Schedule.find();
-        await trainModel(trainingData);
-        res.json({ message: "AI Model Trained Successfully!" });
-      });
+    // router.post("/train", async (req, res) => {
+    //     const trainingData = await Schedule.find();
+    //     await trainModel(trainingData);
+    //     res.json({ message: "AI Model Trained Successfully!" });
+    //   });
     router.get('/', async(req, res) => {
         console.log("ENTER in get schedule by id")
         console.log('req.query', req.query)
