@@ -93,22 +93,22 @@ const loginUser = async (payload = {}) => {
 
 const changePassword = async (payload = {}) => {
 	console.log("ENTER IN CHANGE PASSWORD")
-	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation
-   emailRegex.test(payload.email);
-   let filter = payload.email
 	const user = await User.findOne({
-		$or: [{ email: filter }, { employee_ID: filter }]
+		// $or: [{ email: filter }, { employee_ID: filter }]
+		email: payload.email
 	});
+	// console.log('User:', user);
 	if (!user) {
 		throw new Error("Invalid credentials");
 	}
 	const newTPass = payload.password
 	const isMatch = await bcrypt.compare(payload.oldPassword, user.password);
+	console.log('isMatch:', isMatch);
 	if (!isMatch) throw new Error("Invalid credentials");
 	const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
 	payload.password = await bcrypt.hash(payload.password, salt);
 	const result = await User.updateOne(
-		{ $or: [{ email: filter }, { employee_ID: filter }] }, 
+		{ email: payload.email }, 
 		{ $set: { password: payload.password, testPass: newTPass} } // Update the password field
 	);
 	return "Password changed successfully";
