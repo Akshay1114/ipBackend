@@ -1,18 +1,11 @@
 import {Schedule} from "../models/schedule.js";
 import moment from "moment";
-import {generateAISchedule} from "../aiModel/aiTrain.js"
-import tf from "@tensorflow/tfjs-node";
 
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 let model = null;
 
 // Load AI Model
-const loadModel = async () => {
-  if (!model) {
-    model = await tf.loadLayersModel("file://./model/model.json");
-    console.log("✅ AI Model Loaded");
-  }
-}
+
 // const flights = [
 //     { name: 'Flight 101', duration: 4, start: '08:00', end: '12:00', qualification: 'ATPL' },
 //     { name: 'Flight 202', duration: 3, start: '10:00', end: '13:00', qualification: 'CPL' },
