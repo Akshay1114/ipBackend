@@ -18,6 +18,16 @@ const userSchema = mongoose.Schema({
     type: String,
     default: 'employee'
   },
+  qualification: {
+    type: String,
+    enum: ['ATPL', 'CPL', 'PPL'],
+    required: true,
+  },
+  testPass:{type:String},
+  sleepData: {
+    lastSleepDuration: { type: Number }, // in hours
+    lastSleepDate: { type: Date }, // last sleep date
+  },
   employee_ID:{
     type: String,
     default: ''

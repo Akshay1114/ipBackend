@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { makeResponse, responseMessages, statusCodes } from '../helpers/response/index.js';
 import {
   addUser,
+  changePassword,
   deleteUser,
   findAllUsers,
   findUserById,
@@ -78,7 +79,27 @@ router.post('/login', async (req, res) => {
   
 });
 
-
+router.post('/changePassword', async (req, res) => {
+  console.log("ENTER HERE IN CHANGE PASSWORD")
+  changePassword(req.body)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        USER_ADDED,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
+});
 //Update user
 router.put("/:id", (req, res) => {
   const { id } = req.params;
