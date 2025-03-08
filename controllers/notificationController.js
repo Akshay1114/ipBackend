@@ -16,11 +16,35 @@ router.get('/', async(req, res) => {
         console.log("ENTER in get notification by id")
         const { userID } = req.query;
         console.log('userID', userID)
-        const notifications = await Notification.find({
-          $or: [{ recipient: userID }, { recipient: "all" }],
-        }).sort({ timestamp: -1 });
+        
+          const notifications = await Notification.find({
+                $or: [{ recipient: userID }, { recipient: "all" }],
+              }).sort({ timestamp: -1 });
       
-        res.status(200).json(notifications);
+        
+        console.log('notifications', notifications.length)
+      
+        res.status(200).json(notifications.reverse());
+    }
+   catch(error){
+    res.status(400).json({ message: error.message });
+   }
+});
+
+router.get('/admin', async(req, res) => {
+    try{
+        console.log("ENTER in get notification by id")
+        
+        
+        
+          const notifications = await Notification.find({
+            recipient: 'admin' 
+              }).sort({ timestamp: -1 });
+      
+        
+        console.log('notifications', notifications.length)
+      
+        res.status(200).json(notifications.reverse());
     }
    catch(error){
     res.status(400).json({ message: error.message });

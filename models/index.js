@@ -20,8 +20,6 @@ const userSchema = mongoose.Schema({
   },
   qualification: {
     type: String,
-    enum: ['ATPL', 'CPL', 'PPL'],
-    required: true,
   },
   testPass:{type:String},
   sleepData: {
