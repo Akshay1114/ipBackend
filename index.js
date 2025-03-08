@@ -13,11 +13,13 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*", // React app URL
+    origin: "*", 
     methods: ["GET", "POST"],
 	allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
   },
+  transports: ["websocket", "polling"],
+  allowEIO3: true,
 });
 const corsOptions = {
 	origin: '*',  
@@ -82,7 +84,7 @@ io.on("connection", (socket) => {
 
     const adminSocketId = users["admin"];
     if (adminSocketId) {
-      io.to(adminSocketId).emit("receive_notification", { message, senderID, senderName, scheduleID });
+      io.to(adminSocketId).emit("receive_admin_notification", { message, senderID, senderName, scheduleID });
     } else {
       console.log("Admin is offline, notification saved in DB.");
     }

@@ -44,14 +44,14 @@ const addUser = async (payload = {}) => {
 		});
 		
 
-		const resetLink = `http://localhost:5173/reset-password?email=${encodeURIComponent(payload.email)}`;
+		const resetLink = `https://ip-frontend-pi.vercel.app/reset-password?email=${encodeURICompone(payload.email)}`;
 
 		const mailOptions = {
 			from: '"Wings Wise',
 			to: payload.email,
 			subject: "Welcome to Wings Wise",
 			text: "Hello! This is a test email sent using SMTP in Node.js.",
-			html: `<h3>Hello!</h3><p> Welcome to team Here is your one time password <strong>${oneTpass} and here is the link to change your password ${resetLink} .</p>`
+			html: `<h3>Hello!</h3><p> Welcome to team Here is your one time password <strong>${oneTpass}</strond>  and Your employee ID : <strong>${generateEmployeeId}</strong> here is the link to change your password ${resetLink} .</p>`
 		};
 		
 		
