@@ -155,9 +155,13 @@ router.get("/", (req, res) => {
 
   //created common searching object for find all user and user count
   let searchingUser = {
-    isDeleted: false, $or: [{ 'name': { '$regex': regx, $options: 'i' } },
-    { 'mobile': regx }]
-  }
+    isDeleted: false,
+    role: { $ne: "admin" },
+    $or: [
+      { employee_ID: { '$regex': regx, $options: 'i' } },
+      { name: { '$regex': regx, $options: 'i' } }
+    ]
+  };
 
   findAllUsers(searchingUser, parseInt(skip), parseInt(limit))
     .then(async (user) => {
