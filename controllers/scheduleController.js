@@ -81,4 +81,11 @@ router.get('/allSchedule', async(req, res) => {
         });
 });
 
+router.get('/requestedSchedule', async(req, res) => {
+    console.log("ENTER in get schedule")
+    res.send("Requested Schedule")
+    
+});
+
+
     export const scheduleController = router;

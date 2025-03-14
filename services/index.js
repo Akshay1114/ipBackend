@@ -44,7 +44,7 @@ const addUser = async (payload = {}) => {
 		});
 		
 
-		const resetLink = `https://ip-frontend-pi.vercel.app/reset-password?email=${encodeURICompone(payload.email)}`;
+		const resetLink = `https://ip-frontend-pi.vercel.app/reset-password?email=${encodeURIComponent(payload.email)}`;
 
 		const mailOptions = {
 			from: '"Wings Wise',
