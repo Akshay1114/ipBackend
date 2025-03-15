@@ -18,9 +18,6 @@ const userSchema = mongoose.Schema({
     type: String,
     default: 'employee'
   },
-  qualification: {
-    type: String,
-  },
   testPass:{type:String},
   sleepData: {
     lastSleepDuration: { type: Number }, // in hours
@@ -33,6 +30,17 @@ const userSchema = mongoose.Schema({
   isDeleted: {
     type: Boolean,
     default: false
+  },
+  certifications: {
+    type: [String],
+  },
+  preferredShifts: {
+    type: [String],
+  },
+  healthMetrics: {
+    fatigueLevel: { type: Number },
+    sleepHours: { type: Number },
+    heartRate: { type: Number },
   },
 }, {
   timestamps: true
