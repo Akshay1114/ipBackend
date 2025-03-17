@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { makeResponse, responseMessages, statusCodes } from '../helpers/response/index.js';
 import { getScheduleById, saveSchedule, getAllSchedule } from '../services/schedule.js';
 import { Schedule } from '../models/schedule.js';
+import { simulateAndReschedule } from '../services/scheduler.js';
 // import {trainModel} from '../aiModel/aiTrain.js'
 
 
@@ -87,5 +88,9 @@ router.get('/requestedSchedule', async(req, res) => {
     
 });
 
+router.post('/updateSchedule', async(req, res) => {
+    console.log("ENTER in update schedule")
+    simulateAndReschedule();    
+});
 
     export const scheduleController = router;
