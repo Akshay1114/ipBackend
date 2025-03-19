@@ -1,0 +1,593 @@
+[
+  {
+    "crewId": 1,
+    "name": "John Doe",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 737",
+      "Airbus A320"
+    ],
+    "preferredRoutes": [
+      "AB123",
+      "KL678"
+    ],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 4,
+      "sleepHours": 6,
+      "heartRate": 72
+    }
+  },
+  {
+    "crewId": 2,
+    "name": "Jane Smith",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 777",
+      "Airbus A380"
+    ],
+    "preferredRoutes": [
+      "QR567",
+      "UV123"
+    ],
+    "preferredShifts": [
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 2,
+      "sleepHours": 8,
+      "heartRate": 65
+    }
+  },
+  {
+    "crewId": 3,
+    "name": "Alice Johnson",
+    "role": "Pilot",
+    "certifications": [
+      "Cessna Citation"
+    ],
+    "preferredRoutes": [],
+    "preferredShifts": [
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 68
+    }
+  },
+  {
+    "crewId": 4,
+    "name": "Robert Brown",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 737",
+      "Embraer E-Jet"
+    ],
+    "preferredRoutes": [
+      "MN901"
+    ],
+    "preferredShifts": [
+      "Morning",
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 5,
+      "sleepHours": 4,
+      "heartRate": 78
+    }
+  },
+  {
+    "crewId": 5,
+    "name": "Sophia Green",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Customer Service"
+    ],
+    "preferredRoutes": [
+      "ST890"
+    ],
+    "preferredShifts": [
+      "Evening",
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 2,
+      "sleepHours": 8,
+      "heartRate": 63
+    }
+  },
+  {
+    "crewId": 6,
+    "name": "Ethan Taylor",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Food Service",
+      "Customer Service"
+    ],
+    "preferredRoutes": [
+      "AA111",
+      "WX456"
+    ],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 6,
+      "sleepHours": 5,
+      "heartRate": 80
+    }
+  },
+  {
+    "crewId": 7,
+    "name": "Emma Harris",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety"
+    ],
+    "preferredRoutes": [],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 1,
+      "sleepHours": 9,
+      "heartRate": 60
+    }
+  },
+  {
+    "crewId": 8,
+    "name": "James Lee",
+    "role": "Pilot",
+    "certifications": [
+      "Airbus A380",
+      "Boeing 747"
+    ],
+    "preferredRoutes": [
+      "KL678"
+    ],
+    "preferredShifts": [
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 5,
+      "sleepHours": 4,
+      "heartRate": 77
+    }
+  },
+  {
+    "crewId": 9,
+    "name": "Liam Clark",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Customer Service"
+    ],
+    "preferredRoutes": [
+      "YZ789",
+      "UV123"
+    ],
+    "preferredShifts": [
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 65
+    }
+  },
+  {
+    "crewId": 10,
+    "name": "Mia Davis",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Food Service"
+    ],
+    "preferredRoutes": [
+      "MN901",
+      "WX456"
+    ],
+    "preferredShifts": [],
+    "healthMetrics": {
+      "fatigueLevel": 7,
+      "sleepHours": 3,
+      "heartRate": 85
+    }
+  },
+  {
+    "crewId": 11,
+    "name": "Noah Wilson",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 737",
+      "Airbus A320"
+    ],
+    "preferredRoutes": [
+      "YZ789",
+      "KL678"
+    ],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 1,
+      "sleepHours": 9,
+      "heartRate": 62
+    }
+  },
+  {
+    "crewId": 12,
+    "name": "Olivia Adams",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Food Service"
+    ],
+    "preferredRoutes": [],
+    "preferredShifts": [
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 4,
+      "sleepHours": 6,
+      "heartRate": 72
+    }
+  },
+  {
+    "crewId": 13,
+    "name": "Ava Moore",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Customer Service",
+      "Safety"
+    ],
+    "preferredRoutes": [
+      "KL678"
+    ],
+    "preferredShifts": [
+      "Morning",
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 64
+    }
+  },
+  {
+    "crewId": 14,
+    "name": "Lucas White",
+    "role": "Pilot",
+    "certifications": [
+      "Airbus A320",
+      "Cessna Citation"
+    ],
+    "preferredRoutes": [
+      "YZ789"
+    ],
+    "preferredShifts": [
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 2,
+      "sleepHours": 8,
+      "heartRate": 70
+    }
+  },
+  {
+    "crewId": 15,
+    "name": "Isabella Martinez",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Food Service"
+    ],
+    "preferredRoutes": [
+      "AB123",
+      "QR567"
+    ],
+    "preferredShifts": [],
+    "healthMetrics": {
+      "fatigueLevel": 5,
+      "sleepHours": 4,
+      "heartRate": 77
+    }
+  },
+  {
+    "crewId": 16,
+    "name": "Benjamin Miller",
+    "role": "Pilot",
+    "certifications": [
+      "Airbus A380",
+      "Boeing 737"
+    ],
+    "preferredRoutes": [
+      "UV123"
+    ],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 69
+    }
+  },
+  {
+    "crewId": 17,
+    "name": "Charlotte Robinson",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Customer Service"
+    ],
+    "preferredRoutes": [
+      "ST890"
+    ],
+    "preferredShifts": [
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 4,
+      "sleepHours": 6,
+      "heartRate": 70
+    }
+  },
+  {
+    "crewId": 18,
+    "name": "Ella King",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety"
+    ],
+    "preferredRoutes": [],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 5,
+      "sleepHours": 5,
+      "heartRate": 75
+    }
+  },
+  {
+    "crewId": 19,
+    "name": "Sebastian Allen",
+    "role": "Pilot",
+    "certifications": [
+      "Cessna Citation"
+    ],
+    "preferredRoutes": [
+      "AA111"
+    ],
+    "preferredShifts": [
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 68
+    }
+  },
+  {
+    "crewId": 20,
+    "name": "Amelia Hernandez",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Food Service"
+    ],
+    "preferredRoutes": [],
+    "preferredShifts": [
+      "Morning",
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 2,
+      "sleepHours": 8,
+      "heartRate": 66
+    }
+  },
+  {
+    "crewId": 21,
+    "name": "Daniel Thomas",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 777",
+      "Airbus A320"
+    ],
+    "preferredRoutes": [
+      "YZ789",
+      "QR567"
+    ],
+    "preferredShifts": [
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 68
+    }
+  },
+  {
+    "crewId": 22,
+    "name": "Ella Wright",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Customer Service"
+    ],
+    "preferredRoutes": [
+      "KL678",
+      "OP234"
+    ],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 4,
+      "sleepHours": 6,
+      "heartRate": 70
+    }
+  },
+  {
+    "crewId": 23,
+    "name": "Sophia Clark",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 747",
+      "Cessna Citation"
+    ],
+    "preferredRoutes": [
+      "MN901"
+    ],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 2,
+      "sleepHours": 8,
+      "heartRate": 65
+    }
+  },
+  {
+    "crewId": 24,
+    "name": "Jack Martinez",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Food Service"
+    ],
+    "preferredRoutes": [],
+    "preferredShifts": [
+      "Evening",
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 5,
+      "sleepHours": 4,
+      "heartRate": 74
+    }
+  },
+  {
+    "crewId": 25,
+    "name": "Grace Lopez",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Customer Service"
+    ],
+    "preferredRoutes": [
+      "WX456",
+      "ST890"
+    ],
+    "preferredShifts": [
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 68
+    }
+  },
+  {
+    "crewId": 26,
+    "name": "Liam Adams",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 737",
+      "Airbus A320"
+    ],
+    "preferredRoutes": [
+      "QR567",
+      "AB123"
+    ],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 1,
+      "sleepHours": 9,
+      "heartRate": 64
+    }
+  },
+  {
+    "crewId": 27,
+    "name": "Emily Harris",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Safety",
+      "Customer Service"
+    ],
+    "preferredRoutes": [
+      "YZ789"
+    ],
+    "preferredShifts": [],
+    "healthMetrics": {
+      "fatigueLevel": 6,
+      "sleepHours": 5,
+      "heartRate": 78
+    }
+  },
+  {
+    "crewId": 28,
+    "name": "Oliver Moore",
+    "role": "Pilot",
+    "certifications": [
+      "Airbus A380",
+      "Boeing 777"
+    ],
+    "preferredRoutes": [
+      "OP234",
+      "WX456"
+    ],
+    "preferredShifts": [
+      "Night"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 3,
+      "sleepHours": 7,
+      "heartRate": 66
+    }
+  },
+  {
+    "crewId": 29,
+    "name": "Mason White",
+    "role": "Cabin Crew",
+    "certifications": [
+      "Food Service"
+    ],
+    "preferredRoutes": [
+      "MN901",
+      "KL678"
+    ],
+    "preferredShifts": [
+      "Morning",
+      "Evening"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 2,
+      "sleepHours": 8,
+      "heartRate": 63
+    }
+  },
+  {
+    "crewId": 30,
+    "name": "Chloe King",
+    "role": "Pilot",
+    "certifications": [
+      "Boeing 737",
+      "Cessna Citation"
+    ],
+    "preferredRoutes": [],
+    "preferredShifts": [
+      "Morning"
+    ],
+    "healthMetrics": {
+      "fatigueLevel": 4,
+      "sleepHours": 6,
+      "heartRate": 72
+    }
+  }
+]
