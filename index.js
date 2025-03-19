@@ -7,6 +7,9 @@ import {connectDB} from './loaders/db/index.js';
 import { router } from './routes/index.js'
 import bodyParser from 'body-parser';
 import { Notification } from './models/notification.js';
+import axios from 'axios';
+import passport from 'passport';
+import OAuth2Strategy from 'passport-oauth2';
 dotenv.config();
 connectDB()
 const app = express();
@@ -113,6 +116,40 @@ io.on("connection", (socket) => {
     });
   });
 });
+
+
+passport.use(new OAuth2Strategy({
+  authorizationURL: 'https://www.fitbit.com/oauth2/authorize',
+  tokenURL: 'https://api.fitbit.com/oauth2/token',
+  clientID: process.env.FITBIT_CLIENT_ID,
+  clientSecret: process.env.FITBIT_CLIENT_SECRET,
+  callbackURL: process.env.FITBIT_REDIRECT_URI,
+  scope: ['sleep', 'activity', 'heartrate', 'profile']
+}, (accessToken, refreshToken, profile, done) => {
+  return done(null, { accessToken, refreshToken, profile });
+}));
+
+app.use(passport.initialize());
+
+// Redirect user to Fitbit for authentication
+app.get('/auth/fitbit', passport.authenticate('oauth2'));
+
+// Handle Fitbit OAuth callback
+app.get('/auth/fitbit/callback', passport.authenticate('oauth2', { failureRedirect: '/' }),
+  async (req, res) => {
+      const { accessToken } = req.user;
+console.log('ENTER I N FIT BIT =>>>>>>>')
+      // Fetch Fitbit sleep data
+      try {
+          const response = await axios.get('https://api.fitbit.com/1.2/user/-/sleep/date/today.json', {
+              headers: { Authorization: `Bearer ${accessToken}` }
+          });
+          console.log('response', response.data)
+          res.json(response.data);
+      } catch (error) {
+          res.status(500).json({ error: 'Failed to fetch Fitbit data' });
+      }
+  });
 
 app.use('/api/', router);
 
