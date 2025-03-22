@@ -1,3 +1,5 @@
+import CrewSchedule from "../models/crewSchedule.js";
+import { Flight } from "../models/flight.js";
 import FlightSchedule from "../models/flightSchedule.js";
 import { User } from "../models/index.js";
 import {Schedule} from "../models/schedule.js";
@@ -378,8 +380,9 @@ const getAllSchedule = async (search = {}) => {
         // .find()
         // return schedule;
 
-        const getSchedule = await FlightSchedule.find();
-        return getSchedule;
+        const getFlight = await Flight.find();
+        const getCrewSchedule = await CrewSchedule.find();
+        return { getFlight, getCrewSchedule };
     }
     catch(error){
         throw new Error(error.message)

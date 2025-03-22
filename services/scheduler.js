@@ -250,7 +250,7 @@ async function scheduleCrew() {
     Object.values(crewAssignments).forEach(schedule => {
       schedule.assignedFlights.forEach(flight => {
         events.push({
-          title: `${schedule.crewName} (${schedule.role})`,
+          title: `${schedule.crewName} (${schedule.designation})`,
           start: flight.departure,
           end: flight.arrival
         });
