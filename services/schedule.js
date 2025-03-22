@@ -1,3 +1,4 @@
+import FlightSchedule from "../models/flightSchedule.js";
 import { User } from "../models/index.js";
 import {Schedule} from "../models/schedule.js";
 import moment from "moment";
@@ -373,9 +374,12 @@ const getScheduleById = async (search = {}) => {
 }
 const getAllSchedule = async (search = {}) => {
     try{
-        const schedule = await Schedule
-        .find()
-        return schedule;
+        // const schedule = await Schedule
+        // .find()
+        // return schedule;
+
+        const getSchedule = await FlightSchedule.find();
+        return getSchedule;
     }
     catch(error){
         throw new Error(error.message)

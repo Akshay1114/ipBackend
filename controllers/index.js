@@ -10,7 +10,9 @@ import {
   loginUser,
   updateUser
 } from '../services/index.js';
-
+import fs from 'fs';
+import { User } from '../models/index.js';
+import { Flight } from '../models/flight.js';
 
 const router = Router();
 
@@ -19,7 +21,14 @@ const { USER_ADDED, FETCH_USERS, UPDATE_USER, ALREADY_REGISTER, FETCH_USER, DELE
 //Response Status code
 const { RECORD_CREATED, RECORD_ALREADY_EXISTS, SUCCESS, BAD_REQUEST } = statusCodes;
 
+router.post('/saveCrew', async(req, res) => {
 
+  console.log("ENTER saveCrew")
+  const flightsData = JSON.parse(fs.readFileSync('./flightCollection.json', 'utf-8'));
+  
+  await Flight.insertMany(flightsData);;
+  res.send('Hello World')
+});
 
 //Add User
 router.post('/signup', async(req, res) => {

@@ -1,46 +1,48 @@
 import mongoose from "mongoose";
 // import { promises as fs } from "fs";
-import {connectDB} from "../loaders/db/index.js";
+// import {connectDB} from "../loaders/db/index.js";
 import saveCrewSchedule from "./saveCrewSchedule.js";
 import saveFlightSchedule from "./saveFlightSchedule.js";
+import { Flight } from "../models/flight.js";
+import { User } from "../models/index.js";
 
 // MongoDB Connection
-async function connectToDB() {
-  try {
-    await connectDB();
-    console.log("Connected to MongoDB Atlas");
-  } catch (err) {
-    console.error("Error connecting to MongoDB Atlas:", err);
-  }
-}
+// async function connectToDB() {
+//   try {
+//     await connectDB();
+//     console.log("Connected to MongoDB Atlas");
+//   } catch (err) {
+//     console.error("Error connecting to MongoDB Atlas:", err);
+//   }
+// }
 
-connectToDB();
+// connectToDB();
 
 // Define Schemas
-const Crew = mongoose.model("Crew", new mongoose.Schema({
-  crewId: Number,
-  name: String,
-  role: String,
-  certifications: [String],
-  preferredShifts: [String], // e.g., ["Morning", "Evening"]
-  preferredRoutes: [String], // e.g., ["AB123", "CD456"]
-  unavailableDates: [Date],  // e.g., [new Date("2025-03-15")]
-  healthMetrics: {
-    fatigueLevel: Number,
-    sleepHours: Number,
-    heartRate: Number
-  }
-}));
+// const Crew = mongoose.model("Crew", new mongoose.Schema({
+//   crewId: Number,
+//   name: String,
+//   role: String,
+//   certifications: [String],
+//   preferredShifts: [String], // e.g., ["Morning", "Evening"]
+//   preferredRoutes: [String], // e.g., ["AB123", "CD456"]
+//   unavailableDates: [Date],  // e.g., [new Date("2025-03-15")]
+//   healthMetrics: {
+//     fatigueLevel: Number,
+//     sleepHours: Number,
+//     heartRate: Number
+//   }
+// }));
 
-const Flight = mongoose.model("Flight", new mongoose.Schema({
-  flightId: String,
-  departureLocation: String,
-  arrivalLocation: String,
-  departure: Date,
-  arrival: Date,
-  duration: Number,
-  category: String // e.g., "Short-haul", "Mid-haul", "Long-haul"
-}));
+// const Flight = mongoose.model("Flight", new mongoose.Schema({
+//   flightId: String,
+//   departureLocation: String,
+//   arrivalLocation: String,
+//   departure: Date,
+//   arrival: Date,
+//   duration: Number,
+//   category: String // e.g., "Short-haul", "Mid-haul", "Long-haul"
+// }));
 
 // FDTL Constraints
 const MAX_DUTY_HOURS = 10; // Max hours a crew can work in one day
@@ -48,7 +50,7 @@ const MIN_REST_PERIOD = 8 * 60 * 60 * 1000; // 8 hours in milliseconds
 
 // Function to update crew health metrics
 async function updateCrewHealthMetrics(crewId, fatigueLevel, sleepHours) {
-  const updatedCrew = await Crew.findOneAndUpdate(
+  const updatedCrew = await User.findOneAndUpdate(
     { crewId: crewId },
     { 
       $set: { 
@@ -96,8 +98,8 @@ const isCrewEligible = (crew, flight, crewRestTimes, crewDutyHours) => {
   const flightDuration = (flightArrival - flightDeparture) / (60 * 60 * 1000); // in hours
 
   return (
-    (!crewRestTimes[crew.crewId] || crewRestTimes[crew.crewId] + MIN_REST_PERIOD <= flightDeparture.getTime()) &&
-    (crewDutyHours[crew.crewId] || 0) + flightDuration <= MAX_DUTY_HOURS &&
+    (!crewRestTimes[crew.employee_ID] || crewRestTimes[crew.employee_ID] + MIN_REST_PERIOD <= flightDeparture.getTime()) &&
+    (crewDutyHours[crew.employee_ID] || 0) + flightDuration <= MAX_DUTY_HOURS &&
     crew.healthMetrics.fatigueLevel < 5 &&
     crew.healthMetrics.sleepHours >= 6 &&
     crew.healthMetrics.heartRate <= 80 &&
@@ -110,7 +112,7 @@ const isCrewEligible = (crew, flight, crewRestTimes, crewDutyHours) => {
 // Scheduler Logic
 async function scheduleCrew() {
   try {
-    const crews = await Crew.find();
+    const crews = await User.find();
     const flights = await Flight.find().sort({ departure: 1 }); // Sort flights by departure time
 
     const schedules = [];
@@ -125,13 +127,13 @@ async function scheduleCrew() {
 
     // Initialize crewAssignments and assignedCount for all crew
     crews.forEach(crew => {
-      crewAssignments[crew.crewId] = {
+      crewAssignments[crew.employee_ID] = {
         crewName: crew.name,
-        role: crew.role,
+        designation: crew.designation,
         assignedFlights: [], // List of flights assigned to the crew
         reasons: {} // New field to log reasons for unassigned flights
       };
-      assignedCount[crew.crewId] = 0;
+      assignedCount[crew.employee_ID] = 0;
     });
 
     // First pass: Assign flights to crew members based on preferences and eligibility
@@ -145,27 +147,27 @@ async function scheduleCrew() {
       for (const crew of crews) {
         if (flightAssigned) break;
 
-        if (flightCrew.pilots.length < required.pilots && crew.role === "Pilot" &&
-            assignedCount[crew.crewId] < 2 && isCrewEligible(crew, flight, crewRestTimes, crewDutyHours)) {
+        if (flightCrew.pilots.length < required.pilots && crew.designation === "Pilot" &&
+            assignedCount[crew.employee_ID] < 2 && isCrewEligible(crew, flight, crewRestTimes, crewDutyHours)) {
           
           flightCrew.pilots.push(crew.name); // Add to flight crew
-          crewAssignments[crew.crewId].assignedFlights.push(flight.flightId); // Update crew schedule
-          crewRestTimes[crew.crewId] = new Date(flight.arrival).getTime(); // Update rest time
-          crewDutyHours[crew.crewId] = (crewDutyHours[crew.crewId] || 0) + flight.duration;
-          assignedCount[crew.crewId]++;
+          crewAssignments[crew.employee_ID].assignedFlights.push(flight.flightId); // Update crew schedule
+          crewRestTimes[crew.employee_ID] = new Date(flight.arrival).getTime(); // Update rest time
+          crewDutyHours[crew.employee_ID] = (crewDutyHours[crew.employee_ID] || 0) + flight.duration;
+          assignedCount[crew.employee_ID]++;
           flightAssigned = true; // Mark the flight as assigned
         } else {
           // Log reasons for ineligibility
           if (crew.healthMetrics.fatigueLevel >= 5) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "High fatigue level";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "High fatigue level";
           } else if (crew.healthMetrics.sleepHours < 6) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Insufficient sleep hours";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Insufficient sleep hours";
           } else if (!crew.certifications.includes(getRequiredCertification(flight))) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Lack of required certification";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Lack of required certification";
           } else if (!crew.preferredShifts.includes(getShift(flight.departure))) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Flight shift mismatch";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Flight shift mismatch";
           } else if (crew.preferredRoutes.length > 0 && !crew.preferredRoutes.includes(flight.flightId)) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Route not preferred";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Route not preferred";
           }
         }
       }
@@ -174,27 +176,27 @@ async function scheduleCrew() {
       for (const crew of crews) {
         if (flightAssigned) break;
 
-        if (flightCrew.cabinCrew.length < required.cabinCrew && crew.role === "Cabin Crew" &&
-            assignedCount[crew.crewId] < 2 && isCrewEligible(crew, flight, crewRestTimes, crewDutyHours)) {
+        if (flightCrew.cabinCrew.length < required.cabinCrew && crew.designation === "Cabin Crew" &&
+            assignedCount[crew.employee_ID] < 2 && isCrewEligible(crew, flight, crewRestTimes, crewDutyHours)) {
           
           flightCrew.cabinCrew.push(crew.name); // Add to flight crew
-          crewAssignments[crew.crewId].assignedFlights.push(flight.flightId); // Update crew schedule
-          crewRestTimes[crew.crewId] = new Date(flight.arrival).getTime(); // Update rest time
-          crewDutyHours[crew.crewId] = (crewDutyHours[crew.crewId] || 0) + flight.duration;
-          assignedCount[crew.crewId]++;
+          crewAssignments[crew.employee_ID].assignedFlights.push(flight.flightId); // Update crew schedule
+          crewRestTimes[crew.employee_ID] = new Date(flight.arrival).getTime(); // Update rest time
+          crewDutyHours[crew.employee_ID] = (crewDutyHours[crew.employee_ID] || 0) + flight.duration;
+          assignedCount[crew.employee_ID]++;
           flightAssigned = true; // Mark the flight as assigned
         } else {
           // Log reasons for ineligibility
           if (crew.healthMetrics.fatigueLevel >= 5) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "High fatigue level";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "High fatigue level";
           } else if (crew.healthMetrics.sleepHours < 6) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Insufficient sleep hours";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Insufficient sleep hours";
           } else if (!crew.certifications.includes(getRequiredCertification(flight))) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Lack of required certification";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Lack of required certification";
           } else if (!crew.preferredShifts.includes(getShift(flight.departure))) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Flight shift mismatch";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Flight shift mismatch";
           } else if (crew.preferredRoutes.length > 0 && !crew.preferredRoutes.includes(flight.flightId)) {
-            crewAssignments[crew.crewId].reasons[flight.flightId] = "Route not preferred";
+            crewAssignments[crew.employee_ID].reasons[flight.flightId] = "Route not preferred";
           }
         }
       }
@@ -218,9 +220,9 @@ async function scheduleCrew() {
       // Attempt reassignment or flag for manual intervention
       crews.forEach(crew => {
         if (isCrewEligible(crew, flight, crewRestTimes, crewDutyHours)) {
-          if (flightAssignments[flight.flightId].pilots.length < requiredCrew(flightCategory(flight.duration)).pilots && crew.role === "Pilot") {
+          if (flightAssignments[flight.flightId].pilots.length < requiredCrew(flightCategory(flight.duration)).pilots && crew.designation === "Pilot") {
             flightAssignments[flight.flightId].pilots.push(crew.name);
-          } else if (flightAssignments[flight.flightId].cabinCrew.length < requiredCrew(flightCategory(flight.duration)).cabinCrew && crew.role === "Cabin Crew") {
+          } else if (flightAssignments[flight.flightId].cabinCrew.length < requiredCrew(flightCategory(flight.duration)).cabinCrew && crew.designation === "Cabin Crew") {
             flightAssignments[flight.flightId].cabinCrew.push(crew.name);
           }
         }
@@ -266,6 +268,7 @@ async function scheduleCrew() {
     // console.log(crewAssignments);
     // console.log(flightAssignments);
     console.log("Schedules generated and saved to MongoDB Atlas!");
+    return { crewAssignments, flightAssignments };
 
   } catch (err) {
     console.error("Error during scheduling:", err);
@@ -275,7 +278,7 @@ async function scheduleCrew() {
 // Poll for crew health updates and reschedule if necessary
 const pollCrewChanges = async () => {
   
-    const crews = await Crew.find();
+    const crews = await User.find();
     for (const crew of crews) {
       if (crew.healthMetrics.fatigueLevel >= 5) {
         console.log(`Crew ${crew.name} is fatigued. Reassigning flights.`);

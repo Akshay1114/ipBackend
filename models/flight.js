@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const flightSchema = new mongoose.Schema({
   flightId: {
@@ -24,6 +24,6 @@ const flightSchema = new mongoose.Schema({
   }
 });
 
-const Flight = mongoose.model('Flight', flightSchema);
+const Flight = mongoose.models.Flight || mongoose.model('Flight', flightSchema);
 
-module.exports = Flight;
+export { Flight };

@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
 const crewScheduleSchema = new mongoose.Schema({
-  crewId: {
-    type: Number,
+  employee_ID: {
+    type: String,
     required: true
   },
   crewName: {
     type: String,
     required: true
   },
-  role: {
+  designation: {
     type: String,
     required: true
   },
