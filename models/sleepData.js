@@ -8,7 +8,9 @@ const sleepDataSchema = mongoose.Schema({
     end_sleep: {type:String},
     light_sleep: {type:String},
     deep_sleep: {type:String},
-    rem_sleep: {type:String},},
+    rem_sleep: {type:String},
+    data:{type:Array}
+  },
   {timestamps: true}
 
 );
