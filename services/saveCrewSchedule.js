@@ -1,6 +1,5 @@
-import mongoose from "mongoose";
+
 import CrewSchedule from "../models/crewSchedule.js";
-import {connectDB} from "../loaders/db/index.js";
 // const crewSchedule = require("./crewSchedule.json"); // Replace with the path to your JSON file
 // import crewSchedule from "./crewSchedule.json"; // Replace with the path to your JSON file
 
@@ -10,10 +9,10 @@ async function saveCrewSchedule(crewAssignments) {
     await CrewSchedule.deleteMany({});
     
     // Convert the crew assignments object to an array for bulk insert
-    const schedules = Object.entries(crewAssignments).map(([crewId, data]) => ({
-      crewId: parseInt(crewId),
+    const schedules = Object.entries(crewAssignments).map(([employee_ID, data]) => ({
+      employee_ID: parseInt(employee_ID),
       crewName: data.crewName,
-      role: data.role,
+      designation: data.designation,
       assignedFlights: data.assignedFlights,
       reasons: data.reasons
     }));
@@ -32,11 +31,6 @@ async function saveCrewSchedule(crewAssignments) {
     console.error("Error saving crew schedules:", error);
     return { success: false, error: error.message };
   }
-}
-
-const db = await connectDB();
-if (db) {
-  saveCrewSchedule(crewSchedule);
 }
 
 export default saveCrewSchedule;

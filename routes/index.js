@@ -5,6 +5,7 @@ import { sleepController } from '../controllers/sleepController.js';
 import { scheduleController } from '../controllers/scheduleController.js';
 import { verifyToken } from '../middleware/verfifyToke.js';
 import { notificationController } from '../controllers/notificationController.js';
+import { flightController } from '../controllers/flightController.js';
 // import { verifyToken} from './middleware/verifyToken.js'
 
 const router = Router();
@@ -15,4 +16,5 @@ router.use('/sleepData', sleepController);
 router.use('/schedule', scheduleController)
 // router.use('/v1', verifyToken)
 router.use('/getNotification', notificationController)
+router.use('/flight', flightController)
 export { router };
