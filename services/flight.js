@@ -17,5 +17,16 @@ const saveFlightData = async (payload = {}) => {
     }
 }
 
+const getFlightSchedule = async () => {
+    try{
+        const flightData = await Flight.find();
+        return flightData;
+    }
+    catch(error){
+        throw new Error(error.message)
+    }
+}
 
-export { saveFlightData };
+
+
+export { saveFlightData, getFlightSchedule };

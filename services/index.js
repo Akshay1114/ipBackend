@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs'
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import nodemailer from 'nodemailer';
+import CrewSchedule from '../models/crewSchedule.js';
 
 dotenv.config();
 
@@ -114,6 +115,11 @@ const changePassword = async (payload = {}) => {
 	return "Password changed successfully";
 }
 
+const getCrewSchedule = async (payload = {}) => {
+	const crewData = await CrewSchedule.find();
+	return crewData;	
+}
+
 //Find user detail
 const findUserById = (search = {}) => new Promise((resolve, reject) => {
 	User.findOne(search)
@@ -166,4 +172,4 @@ const updateDeviceToken = (_id, data) => new Promise((resolve, reject) => {
 });
 
 export { addUser, findUserById, updateUser,
-	 deleteUser, findAllUsers, getUsersCount, changeStatus, updateDeviceToken, loginUser, changePassword };
+	 deleteUser, findAllUsers, getUsersCount, changeStatus, updateDeviceToken, loginUser, changePassword, getCrewSchedule };
