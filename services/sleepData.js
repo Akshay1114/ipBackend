@@ -19,15 +19,15 @@ const saveSleepData = async (payload = {}) => {
         console.log('Sleep data payload', payload)
         // const sleepData = new SleepDataModel(payload);
         // sleepData.save();
-        app.get('/auth/fitbit', (req, res) => {
-            const authUrl = `https://www.fitbit.com/oauth2/authorize?${querystring.stringify({
-                response_type: 'code',
-                client_id: process.env.FITBIT_CLIENT_ID,
-                redirect_uri: process.env.FITBIT_REDIRECT_URI,
-                scope: ['sleep', 'activity', 'heartrate', 'profile'],
-            })}`;
-            res.redirect(authUrl);
-          });
+        // app.get('/auth/fitbit', (req, res) => {
+        //     const authUrl = `https://www.fitbit.com/oauth2/authorize?${querystring.stringify({
+        //         response_type: 'code',
+        //         client_id: process.env.FITBIT_CLIENT_ID,
+        //         redirect_uri: process.env.FITBIT_REDIRECT_URI,
+        //         scope: ['sleep', 'activity', 'heartrate', 'profile'],
+        //     })}`;
+        //     res.redirect(authUrl);
+        //   });
           
           app.get('/auth/fitbit/callback', async (req, res) => {
             const { code } = req.query;
