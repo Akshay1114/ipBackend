@@ -8,7 +8,8 @@ import {
   findUserById,
   getUsersCount,
   loginUser,
-  updateUser
+  updateUser,
+  getCrewSchedule
 } from '../services/index.js';
 import fs from 'fs';
 import { User } from '../models/index.js';
@@ -52,6 +53,26 @@ router.post('/signup', async(req, res) => {
               );
             });
  
+});
+
+router.get('/crewSchedule', async(req, res) => {
+  getCrewSchedule()
+  .then(async user => {
+      return makeResponse(
+      res,
+      RECORD_CREATED,
+      true,
+      user
+      );
+  })
+  .catch(async error => {
+      return makeResponse(
+      res,
+      RECORD_ALREADY_EXISTS,
+      false,
+      error.message
+      );
+  });
 });
 
 // Login User

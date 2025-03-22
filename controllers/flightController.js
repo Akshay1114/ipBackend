@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { makeResponse, responseMessages, statusCodes } from '../helpers/response/index.js';
-import { saveFlightData } from '../services/flight.js';
+import { saveFlightData, getFlightSchedule } from '../services/flight.js';
 
 
 const router = Router();
@@ -36,5 +36,27 @@ router.post('/', async(req, res) => {
         );
     });
     });
+
+router.get('/', async(req, res) => {
+
+    getFlightSchedule()
+    .then(async user => {
+        return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        SLEEPDATA_FETCHED,
+        user
+        );
+    })
+    .catch(async error => {
+        return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+        );
+    });
+});
 
     export const flightController = router;
