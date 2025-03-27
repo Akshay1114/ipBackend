@@ -79,7 +79,8 @@ router.post('/saveSleepData', async(req, res) => {
                 client_secret: process.env.FITBIT_CLIENT_SECRET,
                 grant_type: "authorization_code",
                 code: code,
-                redirect_uri: "https://ip-frontend-pi.vercel.app/callback",
+                // redirect_uri: "https://wingwise.org/callback",
+                redirect_uri: "http://localhost:5173/callback",
             }),
             {
                 headers: {
@@ -110,13 +111,25 @@ router.post('/saveSleepData', async(req, res) => {
             const response = await axios.get(`https://api.fitbit.com/1.2/user/-/sleep/date/${startDate}/${endDate}.json`, {
                 headers: { Authorization: `Bearer ${accessToken}` },
             });
-            console.log('response.data', response.data)
-            const sleepData = new SleepDataModel({
-                data: response.data.sleep // Storing sleep data inside the `data` field
-              });
+            console.log("1")
+            const heartRateResponse = await axios.get(`https://api.fitbit.com/1/user/-/activities/heart/date/${startDate}/${endDate}.json`, {
+                headers: { Authorization: `Bearer ${accessToken}` },
+            });
+            console.log("2")
+            // console.log('response.data', response.data)
+            // console.log('heartRateResponse.data', heartRateResponse.data)
+            const apiRes = {
+                sleep: response.data.sleep,
+                heartRate: heartRateResponse.data['activities-heart']
+            }
+            // const sleepData = new SleepDataModel({
+            //     sleep: response.data.sleep,
+            //     heartRate: heartRateResponse.data['activities-heart']
+            //   });
               
-              await sleepData.save();
-            res.json({ sleepData: response.data.sleep });
+            //   await sleepData.save();
+            res.json({ sleep: response.data.sleep,
+                heartRate: heartRateResponse.data['activities-heart'] });
         } catch (error) {
             res.status(400).json({ error: "Error fetching sleep data" });
         }
