@@ -116,7 +116,22 @@ const changePassword = async (payload = {}) => {
 }
 
 const getCrewSchedule = async (payload = {}) => {
-	const crewData = await CrewSchedule.find();
+	// const crewData = await CrewSchedule.find(
+	// 	{ employee_ID: payload }
+	// );
+	const crewData = await CrewSchedule.aggregate([
+		{
+		  $match: { employee_ID: payload } // Find crew schedules for the given employee
+		},
+		{
+		  $lookup: {
+			from: "flightschedules", // Collection name in MongoDB
+			localField: "assignedFlights", // Field in CrewSchedule (array)
+			foreignField: "flightId", // Field in FlightSchedule
+			as: "flightDetails" // Name of the joined data
+		  }
+		}
+	  ]);
 	return crewData;	
 }
 

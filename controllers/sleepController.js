@@ -135,11 +135,15 @@ router.post('/saveSleepData', async(req, res) => {
                 sleep: response.data.sleep,
                 heartRate: heartRateResponse.data['activities-heart']
             }
-            
-            res.json({ 
+            const sleepData = new SleepDataModel({
+                employee_ID: "123456",
                 sleep: response.data.sleep,
-                heartRate: heartRateResponse.data['activities-heart'] 
-            });
+                heartRate: heartRateResponse.data['activities-heart']
+              });
+              
+              await sleepData.save();
+            res.json({ sleep: response.data.sleep,
+                heartRate: heartRateResponse.data['activities-heart'] });
         } catch (error) {
             console.error("Error fetching sleep data:", error.message);
             res.status(400).json({ error: "Error fetching sleep data", message: error.message });

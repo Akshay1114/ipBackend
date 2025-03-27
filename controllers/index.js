@@ -56,12 +56,14 @@ router.post('/signup', async(req, res) => {
 });
 
 router.get('/crewSchedule', async(req, res) => {
-  getCrewSchedule()
+  console.log(req.query)
+  getCrewSchedule(req.query.id)
   .then(async user => {
       return makeResponse(
       res,
       RECORD_CREATED,
       true,
+      FETCH_USERS,
       user
       );
   })
