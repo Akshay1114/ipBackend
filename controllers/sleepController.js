@@ -97,17 +97,31 @@ router.post('/saveSleepData', async(req, res) => {
     });
 
     router.post("/fetch-sleep-data", async (req, res) => {
-        const { accessToken } = req.body;
-    console.log('accessToken', accessToken)
+        const { accessToken, date } = req.body;
+        console.log('accessToken', accessToken);
+        console.log('date parameter', date);
+        
         try {
-            const today = new Date();
-            const lastWeekStart = new Date(today);
-            lastWeekStart.setDate(today.getDate() - 7); // 7 days ago
-        
             const formatDate = (date) => date.toISOString().split("T")[0]; // Format as YYYY-MM-DD
-        
-            const startDate = formatDate(lastWeekStart);
-            const endDate = formatDate(today);
+            
+            let startDate, endDate;
+            
+            if (date && /^\d{4}-\d{2}-\d{2}$/.test(date)) {
+                // If a valid date is provided, use it for both start and end date
+                startDate = date;
+                endDate = date;
+            } else {
+                // Default behavior - fetch last 7 days
+                const today = new Date();
+                const lastWeekStart = new Date(today);
+                lastWeekStart.setDate(today.getDate() - 7); // 7 days ago
+                
+                startDate = formatDate(lastWeekStart);
+                endDate = formatDate(today);
+            }
+            
+            console.log(`Fetching sleep data from ${startDate} to ${endDate}`);
+            
             const response = await axios.get(`https://api.fitbit.com/1.2/user/-/sleep/date/${startDate}/${endDate}.json`, {
                 headers: { Authorization: `Bearer ${accessToken}` },
             });
@@ -116,22 +130,19 @@ router.post('/saveSleepData', async(req, res) => {
                 headers: { Authorization: `Bearer ${accessToken}` },
             });
             console.log("2")
-            // console.log('response.data', response.data)
-            // console.log('heartRateResponse.data', heartRateResponse.data)
+            
             const apiRes = {
                 sleep: response.data.sleep,
                 heartRate: heartRateResponse.data['activities-heart']
             }
-            // const sleepData = new SleepDataModel({
-            //     sleep: response.data.sleep,
-            //     heartRate: heartRateResponse.data['activities-heart']
-            //   });
-              
-            //   await sleepData.save();
-            res.json({ sleep: response.data.sleep,
-                heartRate: heartRateResponse.data['activities-heart'] });
+            
+            res.json({ 
+                sleep: response.data.sleep,
+                heartRate: heartRateResponse.data['activities-heart'] 
+            });
         } catch (error) {
-            res.status(400).json({ error: "Error fetching sleep data" });
+            console.error("Error fetching sleep data:", error.message);
+            res.status(400).json({ error: "Error fetching sleep data", message: error.message });
         }
     });
     export const sleepController = router;

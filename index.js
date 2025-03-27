@@ -125,7 +125,7 @@ passport.use(new OAuth2Strategy({
   tokenURL: 'https://api.fitbit.com/oauth2/token',
   clientID: process.env.FITBIT_CLIENT_ID,
   clientSecret: process.env.FITBIT_CLIENT_SECRET,
-  callbackURL: process.env.FITBIT_REDIRECT_URI,
+  callbackURL: "http://localhost:5173/auth/fitbit/callback",
   scope: ['sleep', 'activity', 'heartrate', 'profile']
 }, (accessToken, refreshToken, profile, done) => {
   return done(null, { accessToken, refreshToken, profile });
