@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import nodemailer from 'nodemailer';
 import CrewSchedule from '../models/crewSchedule.js';
+import Request from '../models/request.js';
 
 dotenv.config();
 
@@ -68,6 +69,96 @@ const addUser = async (payload = {}) => {
         return await user.save();
 		// return otp
 };
+
+// make schedule change request
+const changeSchedule = async (payload = {}) => {
+	try{
+		const session = await mongoose.startSession();
+  session.startTransaction(); // Start transaction for atomic updates
+
+  
+    const { employee_ID, assignedFlights, updateFields } = req.body;
+
+    if (!employee_ID || !assignedFlights || !updateFields) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    // Step 1: Update CrewSchedule
+    await CrewSchedule.updateMany(
+      { employee_ID, assignedFlights: { $in: assignedFlights } },
+      { $set: updateFields },
+      { session }
+    );
+
+    // Step 2: Update FlightSchedule
+    await FlightSchedule.updateMany(
+      { flightId: { $in: assignedFlights } },
+      { $set: updateFields },
+      { session }
+    );
+
+    // Step 3: Update Flight Collection
+    await Flight.updateMany(
+      { flightId: { $in: assignedFlights } },
+      { $set: updateFields },
+      { session }
+    );
+
+    // Commit transaction (save changes)
+    await session.commitTransaction();
+    session.endSession();
+		return "Schedule change request submitted successfully";
+	} catch (error) {
+		console.log('error', error)
+	}
+};
+
+//request to change schedule
+const requestChangeSchedule = async (payload = {}) => {
+
+	try{
+		console.log('requestChangeSchedule', payload)
+		const { employee_ID, flightId, reason, start_date, end_date, status } = payload;
+
+		const request = new Request({
+			employee_ID,
+			flightId,
+			reason,
+			start_date,
+			end_date,
+			status
+		});
+		 await request.save();
+		return "Schedule change request submitted successfully";
+
+	} catch (error) {
+		console.log('error', error)
+		return error
+	}
+}
+const getRequestSchedule = async (payload = {}) => {
+
+	try{
+		console.log('requestChangeSchedule', payload)
+		const id  = payload; // Get employee_ID from query parameters
+
+		let filter = {}; // Default: no filter (fetch all data)
+	
+		if (payload === "admin") {
+		  filter= {}; // Apply filter if ID is provided
+		} else{
+			filter.employee_ID = id;
+		}
+	
+		const requests = await Request.find(filter); 
+
+		return requests;
+
+	} catch (error) {
+		console.log('error', error)
+		return error
+	}
+}
 
 //  Login user
 const loginUser = async (payload = {}) => {
@@ -247,5 +338,5 @@ const updateDeviceToken = (_id, data) => new Promise((resolve, reject) => {
 		.catch(reject);
 });
 
-export { addUser, findUserById, updateUser,
-	 deleteUser, findAllUsers, getUsersCount, changeStatus, updateDeviceToken, loginUser, changePassword, getCrewSchedule };
+export { addUser, findUserById, updateUser,changeSchedule,requestChangeSchedule,
+	 deleteUser, findAllUsers, getUsersCount, changeStatus, updateDeviceToken, loginUser, changePassword, getCrewSchedule, getRequestSchedule };

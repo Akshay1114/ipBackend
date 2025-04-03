@@ -3,13 +3,15 @@ import { makeResponse, responseMessages, statusCodes } from '../helpers/response
 import {
   addUser,
   changePassword,
-  deleteUser,
+  changeSchedule,
   findAllUsers,
   findUserById,
   getUsersCount,
   loginUser,
   updateUser,
-  getCrewSchedule
+  getCrewSchedule,
+  requestChangeSchedule,
+  getRequestSchedule
 } from '../services/index.js';
 import fs from 'fs';
 import { User } from '../models/index.js';
@@ -77,6 +79,7 @@ router.get('/crewSchedule', async(req, res) => {
   });
 });
 
+
 // Login User
 router.post('/login', async (req, res) => {
   console.log("ENTER HERE IN LOGIN")
@@ -109,6 +112,76 @@ router.post('/login', async (req, res) => {
       );
     }
   
+});
+
+// request to change schedule
+router.post('/requestChangeSchedule', async (req, res) => {
+  console.log("ENTER HERE IN REQUEST CHANGE SCHEDULE")
+  requestChangeSchedule(req.body)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        USER_ADDED,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
+});
+
+// get request change schedule
+router.get('/getRequestChangeSchedule', async (req, res) => {
+  console.log("ENTER HERE IN GET REQUEST CHANGE SCHEDULE")
+  const { id } = req.query;
+  console.log('id', id)
+  getRequestSchedule(id)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        FETCH_USERS,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
+});
+//  change schedule
+router.post('/changeSchedule', async (req, res) => {
+  console.log("ENTER HERE IN CHANGE SCHEDULE")
+  changeSchedule(req.body)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        USER_ADDED,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
 });
 
 router.post('/changePassword', async (req, res) => {
