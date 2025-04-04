@@ -114,7 +114,7 @@ router.post('/login', async (req, res) => {
   
 });
 
-// request to change schedule
+// request to change schedule save request
 router.post('/requestChangeSchedule', async (req, res) => {
   console.log("ENTER HERE IN REQUEST CHANGE SCHEDULE")
   requestChangeSchedule(req.body)

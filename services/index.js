@@ -71,42 +71,68 @@ const addUser = async (payload = {}) => {
 };
 
 // make schedule change request
+// const changeSchedule = async (payload = {}) => {
+// 	try{
+// 		const session = await mongoose.startSession();
+//   session.startTransaction(); // Start transaction for atomic updates
+
+  
+//     // const { employee_ID, assignedFlights, updateFields } = req.body;
+// 	const { id, status } = payload;
+
+//     if (!employee_ID || !assignedFlights || !updateFields) {
+//       return res.status(400).json({ error: "Missing required fields" });
+//     }
+// 	await Request.updateOne(
+// 		{ _id: id }, // Find the request by ID
+// 		{ $set: { status } } // Update status field
+// 	)
+//     // Step 1: Update CrewSchedule
+//     await CrewSchedule.updateMany(
+//       { employee_ID, assignedFlights: { $in: assignedFlights } },
+//       { $set: updateFields },
+//       { session }
+//     );
+
+//     // Step 2: Update FlightSchedule
+//     await FlightSchedule.updateMany(
+//       { flightId: { $in: assignedFlights } },
+//       { $set: updateFields },
+//       { session }
+//     );
+
+//     // Step 3: Update Flight Collection
+//     await Flight.updateMany(
+//       { flightId: { $in: assignedFlights } },
+//       { $set: updateFields },
+//       { session }
+//     );
+
+//     // Commit transaction (save changes)
+//     await session.commitTransaction();
+//     session.endSession();
+// 		return "Schedule change request submitted successfully";
+// 	} catch (error) {
+// 		console.log('error', error)
+// 	}
+// };
 const changeSchedule = async (payload = {}) => {
 	try{
 		const session = await mongoose.startSession();
   session.startTransaction(); // Start transaction for atomic updates
 
   
-    const { employee_ID, assignedFlights, updateFields } = req.body;
+    // const { employee_ID, assignedFlights, updateFields } = req.body;
+	const { id, status } = payload;
 
     if (!employee_ID || !assignedFlights || !updateFields) {
       return res.status(400).json({ error: "Missing required fields" });
     }
-
-    // Step 1: Update CrewSchedule
-    await CrewSchedule.updateMany(
-      { employee_ID, assignedFlights: { $in: assignedFlights } },
-      { $set: updateFields },
-      { session }
-    );
-
-    // Step 2: Update FlightSchedule
-    await FlightSchedule.updateMany(
-      { flightId: { $in: assignedFlights } },
-      { $set: updateFields },
-      { session }
-    );
-
-    // Step 3: Update Flight Collection
-    await Flight.updateMany(
-      { flightId: { $in: assignedFlights } },
-      { $set: updateFields },
-      { session }
-    );
-
-    // Commit transaction (save changes)
-    await session.commitTransaction();
-    session.endSession();
+	await Request.updateOne(
+		{ _id: id }, // Find the request by ID
+		{ $set: { status } } // Update status field
+	)
+   
 		return "Schedule change request submitted successfully";
 	} catch (error) {
 		console.log('error', error)
