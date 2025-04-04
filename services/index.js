@@ -118,16 +118,16 @@ const addUser = async (payload = {}) => {
 // };
 const changeSchedule = async (payload = {}) => {
 	try{
-		const session = await mongoose.startSession();
-  session.startTransaction(); // Start transaction for atomic updates
+		// const session = await mongoose.startSession();
+//   session.startTransaction(); 
 
   
     // const { employee_ID, assignedFlights, updateFields } = req.body;
 	const { id, status } = payload;
 
-    if (!employee_ID || !assignedFlights || !updateFields) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
+    // if (!employee_ID || !assignedFlights || !updateFields) {
+    //   return res.status(400).json({ error: "Missing required fields" });
+    // }
 	await Request.updateOne(
 		{ _id: id }, // Find the request by ID
 		{ $set: { status } } // Update status field
@@ -144,10 +144,12 @@ const requestChangeSchedule = async (payload = {}) => {
 
 	try{
 		console.log('requestChangeSchedule', payload)
-		const { employee_ID, flightId, reason, start_date, end_date, status } = payload;
+		const { employee_ID, flightId, reason, start_date, end_date, status, name, leaveType } = payload;
 
 		const request = new Request({
 			employee_ID,
+			name,
+			leaveType,
 			flightId,
 			reason,
 			start_date,
@@ -364,5 +366,10 @@ const updateDeviceToken = (_id, data) => new Promise((resolve, reject) => {
 		.catch(reject);
 });
 
-export { addUser, findUserById, updateUser,changeSchedule,requestChangeSchedule,
+const addDummy = async (payload = {}) => {
+	const user = new User(payload);
+	return await user.save();
+}
+
+export { addUser, findUserById, updateUser,changeSchedule,requestChangeSchedule,addDummy,
 	 deleteUser, findAllUsers, getUsersCount, changeStatus, updateDeviceToken, loginUser, changePassword, getCrewSchedule, getRequestSchedule };

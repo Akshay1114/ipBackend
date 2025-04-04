@@ -27,10 +27,12 @@ const { RECORD_CREATED, RECORD_ALREADY_EXISTS, SUCCESS, BAD_REQUEST } = statusCo
 router.post('/saveCrew', async(req, res) => {
 
   console.log("ENTER saveCrew")
-  const flightsData = JSON.parse(fs.readFileSync('./flightCollection.json', 'utf-8'));
+  // const flightsData = JSON.parse(fs.readFileSync('./flightCollection.json', 'utf-8'));
+  // const flightsData = JSON.parse(fs.readFileSync('./WingJSon/flight.json', 'utf-8'));
+  const flightsData = JSON.parse(fs.readFileSync('./WingJSon/pilot.json', 'utf-8'));
   
-  await Flight.insertMany(flightsData);;
-  res.send('Hello World')
+ const resp = await User.insertMany(flightsData);;
+  res.send(resp)
 });
 
 //Add User
