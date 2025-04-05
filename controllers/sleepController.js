@@ -79,8 +79,8 @@ router.post('/saveSleepData', async(req, res) => {
                 client_secret: process.env.FITBIT_CLIENT_SECRET,
                 grant_type: "authorization_code",
                 code: code,
-                redirect_uri: "https://wingwise.org/callback",
-                // redirect_uri: "http://localhost:5173/callback",
+                // redirect_uri: "https://wingwise.org/callback",
+                redirect_uri: "http://localhost:5173/callback",
             }),
             {
                 headers: {
