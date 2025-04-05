@@ -90,7 +90,7 @@ router.get('/requestedSchedule', async(req, res) => {
 
 router.post('/updateSchedule', async(req, res) => {
     console.log("ENTER in update schedule")
-    simulateAndReschedule();
+  await  simulateAndReschedule();
     res.send("Schedule Updated")
 });
 
