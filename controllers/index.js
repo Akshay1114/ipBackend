@@ -3,13 +3,15 @@ import { makeResponse, responseMessages, statusCodes } from '../helpers/response
 import {
   addUser,
   changePassword,
-  deleteUser,
+  changeSchedule,
   findAllUsers,
   findUserById,
   getUsersCount,
   loginUser,
   updateUser,
-  getCrewSchedule
+  getCrewSchedule,
+  requestChangeSchedule,
+  getRequestSchedule
 } from '../services/index.js';
 import fs from 'fs';
 import { User } from '../models/index.js';
@@ -25,10 +27,12 @@ const { RECORD_CREATED, RECORD_ALREADY_EXISTS, SUCCESS, BAD_REQUEST } = statusCo
 router.post('/saveCrew', async(req, res) => {
 
   console.log("ENTER saveCrew")
-  const flightsData = JSON.parse(fs.readFileSync('./flightCollection.json', 'utf-8'));
+  // const flightsData = JSON.parse(fs.readFileSync('./flightCollection.json', 'utf-8'));
+  // const flightsData = JSON.parse(fs.readFileSync('./WingJSon/flight.json', 'utf-8'));
+  const flightsData = JSON.parse(fs.readFileSync('./WingJSon/pilot.json', 'utf-8'));
   
-  await Flight.insertMany(flightsData);;
-  res.send('Hello World')
+ const resp = await User.insertMany(flightsData);;
+  res.send(resp)
 });
 
 //Add User
@@ -77,6 +81,7 @@ router.get('/crewSchedule', async(req, res) => {
   });
 });
 
+
 // Login User
 router.post('/login', async (req, res) => {
   console.log("ENTER HERE IN LOGIN")
@@ -109,6 +114,76 @@ router.post('/login', async (req, res) => {
       );
     }
   
+});
+
+// request to change schedule save request
+router.post('/requestChangeSchedule', async (req, res) => {
+  console.log("ENTER HERE IN REQUEST CHANGE SCHEDULE")
+  requestChangeSchedule(req.body)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        USER_ADDED,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
+});
+
+// get request change schedule
+router.get('/getRequestChangeSchedule', async (req, res) => {
+  console.log("ENTER HERE IN GET REQUEST CHANGE SCHEDULE")
+  const { id } = req.query;
+  console.log('id', id)
+  getRequestSchedule(id)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        FETCH_USERS,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
+});
+//  change schedule
+router.post('/changeSchedule', async (req, res) => {
+  console.log("ENTER HERE IN CHANGE SCHEDULE")
+  changeSchedule(req.body)
+    .then(async user => {
+      return makeResponse(
+        res,
+        RECORD_CREATED,
+        true,
+        USER_ADDED,
+        user
+      );
+    })
+    .catch(async error => {
+      return makeResponse(
+        res,
+        RECORD_ALREADY_EXISTS,
+        false,
+        error.message
+      );
+    });
 });
 
 router.post('/changePassword', async (req, res) => {

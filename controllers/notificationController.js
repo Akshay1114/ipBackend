@@ -51,4 +51,25 @@ router.get('/admin', async(req, res) => {
    }
 });
 
+router.get('/updates', async(req, res) => {
+    try{
+        console.log("ENTER in get notification by id")
+        const { userID } = req.query;
+        console.log('userID', userID)
+        
+          const notifications = await Notification.find({
+                $or: [{ recipient: userID }, { recipient: "all" }],
+                type: 'update'
+              }).sort({ timestamp: -1 });
+      
+        
+        console.log('notifications', notifications.length)
+      
+        res.status(200).json(notifications.reverse());
+    }
+   catch(error){
+    res.status(400).json({ message: error.message });
+   }
+});
+
 export const notificationController = router;

@@ -1,0 +1,1825 @@
+[
+    {
+        "role": "employee",
+        "employee_ID": "10001",
+        "isDeleted": false,
+        "name": "Captain Alex",
+        "email": "alex@example.com",
+        "password": "$2b$10$randomHash1",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 737",
+            "Airbus A320"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "AB123",
+            "CD456"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10002",
+        "isDeleted": false,
+        "name": "Captain Ben",
+        "email": "ben@example.com",
+        "password": "$2b$10$randomHash2",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A320",
+            "Embraer E190"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "EF789",
+            "GH101"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10003",
+        "isDeleted": false,
+        "name": "Captain Carol",
+        "email": "carol@example.com",
+        "password": "$2b$10$randomHash3",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 777",
+            "Boeing 787"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "IJ121",
+            "KL131"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10004",
+        "isDeleted": false,
+        "name": "Captain David",
+        "email": "david@example.com",
+        "password": "$2b$10$randomHash4",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A380"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 71
+        },
+        "preferredRoutes": [
+            "MN141",
+            "OP151"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10005",
+        "isDeleted": false,
+        "name": "Captain Eve",
+        "email": "eve@example.com",
+        "password": "$2b$10$randomHash5",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 737",
+            "Airbus A320",
+            "Embraer E190"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 69
+        },
+        "preferredRoutes": [
+            "QR161",
+            "ST171"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10006",
+        "isDeleted": false,
+        "name": "Captain Frank",
+        "email": "frank@example.com",
+        "password": "$2b$10$randomHash6",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 777",
+            "Airbus A380"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 73
+        },
+        "preferredRoutes": [
+            "UV181",
+            "WX191"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10007",
+        "isDeleted": false,
+        "name": "Captain Grace",
+        "email": "grace@example.com",
+        "password": "$2b$10$randomHash7",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 787"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "YZ201",
+            "AB211"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10008",
+        "isDeleted": false,
+        "name": "Captain Henry",
+        "email": "henry@example.com",
+        "password": "$2b$10$randomHash8",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 737"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "CD222",
+            "EF233"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10009",
+        "isDeleted": false,
+        "name": "Captain Ivy",
+        "email": "ivy@example.com",
+        "password": "$2b$10$randomHash9",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A320"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "GH244",
+            "IJ255"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10010",
+        "isDeleted": false,
+        "name": "Captain Jack",
+        "email": "jack@example.com",
+        "password": "$2b$10$randomHash10",
+        "designation": "Pilot",
+        "certifications": [
+            "Embraer E190"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 71
+        },
+        "preferredRoutes": [
+            "KL266",
+            "MN277"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10011",
+        "isDeleted": false,
+        "name": "Captain Kelly",
+        "email": "kelly@example.com",
+        "password": "$2b$10$randomHash11",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 777"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 69
+        },
+        "preferredRoutes": [
+            "OP288",
+            "QR299"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10012",
+        "isDeleted": false,
+        "name": "Captain Leo",
+        "email": "leo@example.com",
+        "password": "$2b$10$randomHash12",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A380"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 73
+        },
+        "preferredRoutes": [
+            "ST300",
+            "UV311"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10013",
+        "isDeleted": false,
+        "name": "Captain Mia",
+        "email": "mia@example.com",
+        "password": "$2b$10$randomHash13",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 787"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "WX322",
+            "YZ333"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10014",
+        "isDeleted": false,
+        "name": "Captain Noah",
+        "email": "noah@example.com",
+        "password": "$2b$10$randomHash14",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 737"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "AB344",
+            "CD355"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10015",
+        "isDeleted": false,
+        "name": "Captain Olivia",
+        "email": "olivia@example.com",
+        "password": "$2b$10$randomHash15",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A320"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "EF366",
+            "GH377"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10016",
+        "isDeleted": false,
+        "name": "Captain Peter",
+        "email": "peter@example.com",
+        "password": "$2b$10$randomHash16",
+        "designation": "Pilot",
+        "certifications": [
+            "Embraer E190"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 71
+        },
+        "preferredRoutes": [
+            "IJ388",
+            "KL399"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10017",
+        "isDeleted": false,
+        "name": "Captain Quinn",
+        "email": "quinn@example.com",
+        "password": "$2b$10$randomHash17",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 777"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 69
+        },
+        "preferredRoutes": [
+            "MN400",
+            "OP411"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10018",
+        "isDeleted": false,
+        "name": "Captain Ryan",
+        "email": "ryan@example.com",
+        "password": "$2b$10$randomHash18",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A380"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 73
+        },
+        "preferredRoutes": [
+            "QR422",
+            "ST433"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10019",
+        "isDeleted": false,
+        "name": "Captain Sophia",
+        "email": "sophia@example.com",
+        "password": "$2b$10$randomHash19",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 787"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "UV444",
+            "WX455"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10020",
+        "isDeleted": false,
+        "name": "Captain Thomas",
+        "email": "thomas@example.com",
+        "password": "$2b$10$randomHash20",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 737"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "YZ466",
+            "AB477"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10021",
+        "isDeleted": false,
+        "name": "Captain Ursula",
+        "email": "ursula@example.com",
+        "password": "$2b$10$randomHash21",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A320"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "CD488",
+            "EF499"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10022",
+        "isDeleted": false,
+        "name": "Captain Victor",
+        "email": "victor@example.com",
+        "password": "$2b$10$randomHash22",
+        "designation": "Pilot",
+        "certifications": [
+            "Embraer E190"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 71
+        },
+        "preferredRoutes": [
+            "GH500",
+            "IJ511"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10023",
+        "isDeleted": false,
+        "name": "Captain Wendy",
+        "email": "wendy@example.com",
+        "password": "$2b$10$randomHash23",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 777"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 69
+        },
+        "preferredRoutes": [
+            "KL522",
+            "MN533"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10024",
+        "isDeleted": false,
+        "name": "Captain Xavier",
+        "email": "xavier@example.com",
+        "password": "$2b$10$randomHash24",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A380"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 73
+        },
+        "preferredRoutes": [
+            "OP544",
+            "QR555"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10025",
+        "isDeleted": false,
+        "name": "Captain Yara",
+        "email": "yara@example.com",
+        "password": "$2b$10$randomHash25",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 787"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "ST566",
+            "UV577"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10026",
+        "isDeleted": false,
+        "name": "Captain Zane",
+        "email": "zane@example.com",
+        "password": "$2b$10$randomHash26",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 737"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "WX588",
+            "YZ599"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10027",
+        "isDeleted": false,
+        "name": "Captain Ava",
+        "email": "ava@example.com",
+        "password": "$2b$10$randomHash27",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A320"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "AB600",
+            "CD611"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10028",
+        "isDeleted": false,
+        "name": "Captain Brody",
+        "email": "brody@example.com",
+        "password": "$2b$10$randomHash28",
+        "designation": "Pilot",
+        "certifications": [
+            "Embraer E190"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 71
+        },
+        "preferredRoutes": [
+            "EF622",
+            "GH633"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10029",
+        "isDeleted": false,
+        "name": "Captain Chloe",
+        "email": "chloe@example.com",
+        "password": "$2b$10$randomHash29",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 777"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 69
+        },
+        "preferredRoutes": [
+            "IJ644",
+            "KL655"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10030",
+        "isDeleted": false,
+        "name": "Captain Dylan",
+        "email": "dylan@example.com",
+        "password": "$2b$10$randomHash30",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A380"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 73
+        },
+        "preferredRoutes": [
+            "MN666",
+            "OP677"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10031",
+        "isDeleted": false,
+        "name": "Captain Ella",
+        "email": "ella@example.com",
+        "password": "$2b$10$randomHash31",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 787"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "QR688",
+            "ST699"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10032",
+        "isDeleted": false,
+        "name": "Captain Finn",
+        "email": "finn@example.com",
+        "password": "$2b$10$randomHash32",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 737"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "UV700",
+            "WX711"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10033",
+        "isDeleted": false,
+        "name": "Captain Grace",
+        "email": "grace2@example.com",
+        "password": "$2b$10$randomHash33",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A320"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "YZ722",
+            "AB733"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10034",
+        "isDeleted": false,
+        "name": "Captain Hunter",
+        "email": "hunter@example.com",
+        "password": "$2b$10$randomHash34",
+        "designation": "Pilot",
+        "certifications": [
+            "Embraer E190"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 71
+        },
+        "preferredRoutes": [
+            "CD744",
+            "EF755"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10035",
+        "isDeleted": false,
+        "name": "Captain Isla",
+        "email": "isla@example.com",
+        "password": "$2b$10$randomHash35",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 777"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 69
+        },
+        "preferredRoutes": [
+            "GH766",
+            "IJ777"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10036",
+        "isDeleted": false,
+        "name": "Captain Jasper",
+        "email": "jasper@example.com",
+        "password": "$2b$10$randomHash36",
+        "designation": "Pilot",
+        "certifications": [
+            "Airbus A380"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 73
+        },
+        "preferredRoutes": [
+            "KL788",
+            "MN799"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "10037",
+        "isDeleted": false,
+        "name": "Captain Josie",
+        "email": "josie@example.com",
+        "password": "$2b$10$randomHash37",
+        "designation": "Pilot",
+        "certifications": [
+            "Boeing 787"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "OP800",
+            "QR811"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20001",
+        "isDeleted": false,
+        "name": "Crew Alice",
+        "email": "alice@example.com",
+        "password": "$2b$10$crewHash1",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "AB123",
+            "CD456"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20002",
+        "isDeleted": false,
+        "name": "Crew Bob",
+        "email": "bob@example.com",
+        "password": "$2b$10$crewHash2",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "EF789",
+            "GH101"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20003",
+        "isDeleted": false,
+        "name": "Crew Cindy",
+        "email": "cindy@example.com",
+        "password": "$2b$10$crewHash3",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 74
+        },
+        "preferredRoutes": [
+            "IJ121",
+            "KL131"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20004",
+        "isDeleted": false,
+        "name": "Crew Dan",
+        "email": "dan@example.com",
+        "password": "$2b$10$crewHash4",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "MN141",
+            "OP151"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20005",
+        "isDeleted": false,
+        "name": "Crew Eve",
+        "email": "eve2@example.com",
+        "password": "$2b$10$crewHash5",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service",
+            "Languages"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 71
+        },
+        "preferredRoutes": [
+            "QR161",
+            "ST171"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20006",
+        "isDeleted": false,
+        "name": "Crew Frank",
+        "email": "frank2@example.com",
+        "password": "$2b$10$crewHash6",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures",
+            "Leadership"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 73
+        },
+        "preferredRoutes": [
+            "UV181",
+            "WX191"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20007",
+        "isDeleted": false,
+        "name": "Crew Grace",
+        "email": "grace3@example.com",
+        "password": "$2b$10$crewHash7",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance",
+            "Troubleshooting"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 69
+        },
+        "preferredRoutes": [
+            "YZ201",
+            "AB211"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20008",
+        "isDeleted": false,
+        "name": "Crew Henry",
+        "email": "henry2@example.com",
+        "password": "$2b$10$crewHash8",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance",
+            "Safety"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "CD222",
+            "EF233"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20009",
+        "isDeleted": false,
+        "name": "Crew Ivy",
+        "email": "ivy2@example.com",
+        "password": "$2b$10$crewHash9",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "GH244",
+            "IJ255"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20010",
+        "isDeleted": false,
+        "name": "Crew Jack",
+        "email": "jack2@example.com",
+        "password": "$2b$10$crewHash10",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "KL266",
+            "MN277"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20011",
+        "isDeleted": false,
+        "name": "Crew Kelly",
+        "email": "kelly2@example.com",
+        "password": "$2b$10$crewHash11",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "OP288",
+            "QR299"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20012",
+        "isDeleted": false,
+        "name": "Crew Leo",
+        "email": "leo2@example.com",
+        "password": "$2b$10$crewHash12",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "ST300",
+            "UV311"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20013",
+        "isDeleted": false,
+        "name": "Crew Mia",
+        "email": "mia2@example.com",
+        "password": "$2b$10$crewHash13",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "WX322",
+            "YZ333"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20014",
+        "isDeleted": false,
+        "name": "Crew Noah",
+        "email": "noah2@example.com",
+        "password": "$2b$10$crewHash14",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "AB344",
+            "CD355"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20015",
+        "isDeleted": false,
+        "name": "Crew Olivia",
+        "email": "olivia2@example.com",
+        "password": "$2b$10$crewHash15",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "EF366",
+            "GH377"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20016",
+        "isDeleted": false,
+        "name": "Crew Peter",
+        "email": "peter2@example.com",
+        "password": "$2b$10$crewHash16",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "IJ388",
+            "KL399"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20017",
+        "isDeleted": false,
+        "name": "Crew Quinn",
+        "email": "quinn2@example.com",
+        "password": "$2b$10$crewHash17",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "MN400",
+            "OP411"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20018",
+        "isDeleted": false,
+        "name": "Crew Ryan",
+        "email": "ryan2@example.com",
+        "password": "$2b$10$crewHash18",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "QR422",
+            "ST433"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20019",
+        "isDeleted": false,
+        "name": "Crew Sophia",
+        "email": "sophia2@example.com",
+        "password": "$2b$10$crewHash19",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "UV444",
+            "WX455"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20020",
+        "isDeleted": false,
+        "name": "Crew Thomas",
+        "email": "thomas2@example.com",
+        "password": "$2b$10$crewHash20",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "YZ466",
+            "AB477"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20021",
+        "isDeleted": false,
+        "name": "Crew Ursula",
+        "email": "ursula2@example.com",
+        "password": "$2b$10$crewHash21",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "CD488",
+            "EF499"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20022",
+        "isDeleted": false,
+        "name": "Crew Victor",
+        "email": "victor2@example.com",
+        "password": "$2b$10$crewHash22",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "GH500",
+            "IJ511"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20023",
+        "isDeleted": false,
+        "name": "Crew Wendy",
+        "email": "wendy2@example.com",
+        "password": "$2b$10$crewHash23",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "KL522",
+            "MN533"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20024",
+        "isDeleted": false,
+        "name": "Crew Xavier",
+        "email": "xavier2@example.com",
+        "password": "$2b$10$crewHash24",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "OP544",
+            "QR555"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20025",
+        "isDeleted": false,
+        "name": "Crew Yara",
+        "email": "yara2@example.com",
+        "password": "$2b$10$crewHash25",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "ST566",
+            "UV577"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20026",
+        "isDeleted": false,
+        "name": "Crew Zane",
+        "email": "zane2@example.com",
+        "password": "$2b$10$crewHash26",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "WX588",
+            "YZ599"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20027",
+        "isDeleted": false,
+        "name": "Crew Ava",
+        "email": "ava2@example.com",
+        "password": "$2b$10$crewHash27",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "AB600",
+            "CD611"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20028",
+        "isDeleted": false,
+        "name": "Crew Brody",
+        "email": "brody2@example.com",
+        "password": "$2b$10$crewHash28",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "EF622",
+            "GH633"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20029",
+        "isDeleted": false,
+        "name": "Crew Chloe",
+        "email": "chloe2@example.com",
+        "password": "$2b$10$crewHash29",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "IJ644",
+            "KL655"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20030",
+        "isDeleted": false,
+        "name": "Crew Dylan",
+        "email": "dylan2@example.com",
+        "password": "$2b$10$crewHash30",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "MN666",
+            "OP677"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20031",
+        "isDeleted": false,
+        "name": "Crew Ella",
+        "email": "ella2@example.com",
+        "password": "$2b$10$crewHash31",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "QR688",
+            "ST699"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20032",
+        "isDeleted": false,
+        "name": "Crew Finn",
+        "email": "finn2@example.com",
+        "password": "$2b$10$crewHash32",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "UV700",
+            "WX711"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20033",
+        "isDeleted": false,
+        "name": "Crew Grace2",
+        "email": "grace4@example.com",
+        "password": "$2b$10$crewHash33",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "YZ722",
+            "AB733"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20034",
+        "isDeleted": false,
+        "name": "Crew Hunter",
+        "email": "hunter2@example.com",
+        "password": "$2b$10$crewHash34",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cabin Management",
+            "Emergency Procedures"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "CD744",
+            "EF755"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20035",
+        "isDeleted": false,
+        "name": "Crew Isla",
+        "email": "isla2@example.com",
+        "password": "$2b$10$crewHash35",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Aircraft Systems",
+            "Maintenance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 3,
+            "sleepHours": 7,
+            "heartRate": 70
+        },
+        "preferredRoutes": [
+            "GH766",
+            "IJ777"
+        ],
+        "preferredShifts": [
+            "Evening"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20036",
+        "isDeleted": false,
+        "name": "Crew Jasper",
+        "email": "jasper2@example.com",
+        "password": "$2b$10$crewHash36",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "Cargo Handling",
+            "Weight and Balance"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 4,
+            "sleepHours": 6,
+            "heartRate": 72
+        },
+        "preferredRoutes": [
+            "KL788",
+            "MN799"
+        ],
+        "preferredShifts": [
+            "Night"
+        ]
+    },
+    {
+        "role": "employee",
+        "employee_ID": "20037",
+        "isDeleted": false,
+        "name": "Crew Josie",
+        "email": "josie2@example.com",
+        "password": "$2b$10$crewHash37",
+        "designation": "Cabin Crew",
+        "certifications": [
+            "First Aid",
+            "Customer Service"
+        ],
+        "healthMetrics": {
+            "fatigueLevel": 2,
+            "sleepHours": 8,
+            "heartRate": 68
+        },
+        "preferredRoutes": [
+            "OP800",
+            "QR811"
+        ],
+        "preferredShifts": [
+            "Morning"
+        ]
+    }
+]
